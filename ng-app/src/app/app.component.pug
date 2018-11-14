@@ -1,0 +1,19 @@
+nz-layout
+  nz-header
+    //.logo Inspector
+    ul(nz-menu, [nzMode]="'horizontal'", [nzTheme]="'dark'", style="line-height: 64px;")
+      li(nz-menu-item, [nzSelected]="activeMenu==menu", *ngFor="let menu of menus", (click)="switchMenu(menu)") {{ menu.name }}
+  nz-layout
+    nz-sider
+      ul(nz-menu, style="height: 100%;")
+        li(nz-menu-item, *ngFor="let menu of activeMenu.menus", [routerLink]="menu.link") {{menu.name}}
+    nz-layout(style="padding:20px;")
+      nz-content(style="background: #FFF; padding:20px;")
+        nz-tabset(*ngIf="tabs.length>1", [nzSelectedIndex]="activeTabIndex")
+          nz-tab(*ngFor="let tab of tabs", [nzTitle]="titleTemplate")
+            ng-template(#titleTemplate)
+              div
+                | {{tab.data.name}}
+                i.ant-tabs-close-x(nz-icon, type="close", (click)="closeTab(tab)")
+        router-outlet
+      //nz-footer

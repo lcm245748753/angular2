@@ -1,0 +1,6 @@
+#!/bin/sh
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PATH=$DIR/node:$DIR/:$PATH
+
+"node" "$DIR/node_modules/@angular/cli/bin/ng" "$@"

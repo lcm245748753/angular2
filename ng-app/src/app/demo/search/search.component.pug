@@ -1,0 +1,12 @@
+form(nz-form, [formGroup]="form", (ngSubmit)="search()")
+  nz-form-item
+    nz-form-control
+      nz-input-group([nzPrefix]="prefixUser")
+        input(nz-input, formControlName="username", placeholder="Username")
+  nz-form-item
+    nz-form-control
+      nz-input-group([nzPrefix]="prefixLock")
+        input(nz-input, formControlName="password", placeholder="Password")
+  nz-form-item
+    nz-form-control
+      button(nz-button, [nzType]="primary") 查询
